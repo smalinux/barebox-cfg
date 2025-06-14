@@ -20,6 +20,9 @@ __success__ = <<EOT
     # Backup savedefconfig
     #cp build/defconfig /src/barebox-cfg/bbb/
 
+    # restart the device:
+    # sudo uhubctl -l 1-1.4 -p 4 -a cycle -d 5
+
     # Backup .makeshift
     cp ./.makeshift /src/barebox-cfg/
 
