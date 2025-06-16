@@ -2,14 +2,6 @@
 \builder = kbuild
 __check__ = git cat-file commit a3ffa97f40dc81f2d6b07ee964f2340fe0c1ba97 2>/dev/null 1>/dev/null
 
-[software u-boot]
-\builder = kbuild
-__check__ = git cat-file commit 7e492d8258182e31c988bbf9917d4a3d41949d56 2>/dev/null 1>/dev/null
-
-[software linux]
-\builder = kbuild
-__check__ = git cat-file commit 2d137c24e9f433e37ffd10b3d5f418157589a8d2 2>/dev/null 1>/dev/null
-
 [platform bbb]
 # DEFCONFIG = omap_defconfig
 # ln -s /src/build/barebox/bbb/images/barebox-am33xx-beaglebone.img /tftpboot/none-barebox-am335x-bone-black
