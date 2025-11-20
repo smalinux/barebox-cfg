@@ -31,6 +31,7 @@ __success__ = echo all good; pwd
 
 
 [platform stm32]
+# m stm32mp_defconfig
 \architecture = arm
 __success__ = echo all good; pwd
 
