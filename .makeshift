@@ -16,7 +16,7 @@ __success__ = <<EOT
     # sudo uhubctl -l 1-1.4 -p 4 -a cycle -d 5
 
     # Backup .makeshift
-    cp ./.makeshift /src/barebox-cfg/
+    cp /src/barebox/.makeshift /src/barebox-cfg/
 
     # Delete old symlink && make new symlink
     rm -f /tftpboot/none-barebox-am335x-bone-black
@@ -46,11 +46,32 @@ __success__ = <<EOT
 	echo all good
 
 	# Backup .makeshift
-	cp ./.makeshift /src/barebox-cfg/
+	cp /src/barebox/.makeshift /src/barebox-cfg/
 
 	# Delete old symlink && make new symlink
 	rm -f /tftpboot/none-linux-rk3562-kickpi-k3
 	ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+EOT
+
+[platform amlogic]
+# m rockchip_v8_defconfig << FIXME
+# FIXME
+# ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+#	cp /src/rkbin/bin/rk35/rk3562_ddr_1332MHz_v1.07.bin arch/arm/boards/rockchip-rk3562-evb2/sdram-init.bin
+#	cp /src/rkbin/bin/rk35/rk3562_bl31_v1.22.elf firmware/rk3562-bl31.bin
+#	cp /src/rkbin/bin/rk35/rk3562_bl32_v1.08.bin firmware/rk3562-bl32.bin
+\architecture = arm64
+__success__ = <<EOT
+	echo all good
+
+	# Backup .makeshift
+	cp /src/barebox/.makeshift /src/barebox-cfg/
+
+	# FIXMEEEE Delete old symlink && make new symlink
+	rm -f /tftpboot/barebox-dt-2nd.img
+	rm -f /tftpboot/aml-s905d3-cc.dtb
+	ln -s /src/barebox/build/images/barebox-dt-2nd.img /tftpboot/barebox-dt-2nd.img
+	ln -s /src/amlogic/external/uboot/out/aml-s905d3-cc.dtb /tftpboot/aml-s905d3-cc.dtb
 EOT
 
 
