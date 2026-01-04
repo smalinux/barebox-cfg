@@ -1,0 +1,80 @@
+[software barebox]
+\builder = kbuild
+__check__ = git cat-file commit a3ffa97f40dc81f2d6b07ee964f2340fe0c1ba97 2>/dev/null 1>/dev/null
+
+[platform bbb]
+# DEFCONFIG = omap_defconfig
+# ln -s /src/build/barebox/bbb/images/barebox-am33xx-beaglebone.img /tftpboot/none-barebox-am335x-bone-black
+\architecture = arm
+__success__ = <<EOT
+    echo all good
+
+    # Backup savedefconfig
+    #cp build/defconfig /src/barebox-cfg/bbb/
+
+    # restart the device:
+    # sudo uhubctl -l 1-1.4 -p 4 -a cycle -d 5
+
+    # Backup .makeshift
+    cp /src/barebox/.makeshift /src/barebox-cfg/
+
+    # Delete old symlink && make new symlink
+    rm -f /tftpboot/none-barebox-am335x-bone-black
+    ln -s /src/build/barebox/bbb/images/barebox-am33xx-beaglebone.img /tftpboot/none-barebox-am335x-bone-black
+
+EOT
+
+
+[platform mlo]
+\architecture = arm
+__success__ = echo all good; pwd
+
+
+[platform stm32]
+# m stm32mp_defconfig
+\architecture = arm
+__success__ = echo all good; pwd
+
+[platform rk3562]
+# m rockchip_v8_defconfig
+# ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+#	cp /src/rkbin/bin/rk35/rk3562_ddr_1332MHz_v1.07.bin arch/arm/boards/rockchip-rk3562-evb2/sdram-init.bin
+#	cp /src/rkbin/bin/rk35/rk3562_bl31_v1.22.elf firmware/rk3562-bl31.bin
+#	cp /src/rkbin/bin/rk35/rk3562_bl32_v1.08.bin firmware/rk3562-bl32.bin
+\architecture = arm64
+__success__ = <<EOT
+	echo all good
+
+	# Backup .makeshift
+	cp /src/barebox/.makeshift /src/barebox-cfg/
+
+	# Delete old symlink && make new symlink
+	rm -f /tftpboot/none-linux-rk3562-kickpi-k3
+	ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+EOT
+
+[platform amlogic]
+# m rockchip_v8_defconfig << FIXME
+# FIXME
+# ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+#	cp /src/rkbin/bin/rk35/rk3562_ddr_1332MHz_v1.07.bin arch/arm/boards/rockchip-rk3562-evb2/sdram-init.bin
+#	cp /src/rkbin/bin/rk35/rk3562_bl31_v1.22.elf firmware/rk3562-bl31.bin
+#	cp /src/rkbin/bin/rk35/rk3562_bl32_v1.08.bin firmware/rk3562-bl32.bin
+\architecture = arm64
+__success__ = <<EOT
+	echo all good
+
+	# Backup .makeshift
+	cp /src/barebox/.makeshift /src/barebox-cfg/
+
+	# FIXMEEEE Delete old symlink && make new symlink
+	rm -f /tftpboot/barebox-dt-2nd.img
+	rm -f /tftpboot/aml-s905d3-cc.dtb
+	ln -s /src/barebox/build/images/barebox-dt-2nd.img /tftpboot/barebox-dt-2nd.img
+	ln -s /src/amlogic/external/uboot/out/aml-s905d3-cc.dtb /tftpboot/aml-s905d3-cc.dtb
+EOT
+
+
+[platform stm32kasan]
+\platform = stm32
+__success__ = echo all good
