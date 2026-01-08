@@ -22,7 +22,6 @@ __success__ = <<EOT
     rm -f /tftpboot/none-barebox-am335x-bone-black
     ln -s /src/build/barebox/bbb/images/barebox-am33xx-beaglebone.img /tftpboot/none-barebox-am335x-bone-black
 
-	# make savedefconfig
 EOT
 
 
@@ -52,8 +51,6 @@ __success__ = <<EOT
 	# Delete old symlink && make new symlink
 	rm -f /tftpboot/none-linux-rk3562-kickpi-k3
 	ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
-
-	# make savedefconfig
 EOT
 
 [platform amlogic]
@@ -77,7 +74,6 @@ __success__ = <<EOT
 	ln -s /src/barebox/build/images/barebox-dt-2nd.img /tftpboot/barebox-dt-2nd.img
 	ln -s /src/build/barebox/amlogic/arch/arm/dts/aml-s905d3-cc.dtb /tftpboot/aml-s905d3-cc.dtb
 
-	# make savedefconfig
 EOT
 
 
