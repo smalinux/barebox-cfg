@@ -71,7 +71,7 @@ __success__ = <<EOT
 	rm -f /tftpboot/barebox-dt-2nd.img
 	rm -f /tftpboot/aml-s905d3-cc.dtb
 
-	ln -s /src/barebox/build/images/barebox-dt-2nd.img /tftpboot/barebox-dt-2nd.img
+	ln -s /src/build/barebox/amlogic/images/barebox-dt-2nd.img /tftpboot/barebox-dt-2nd.img
 	ln -s /src/build/barebox/amlogic/arch/arm/dts/aml-s905d3-cc.dtb /tftpboot/aml-s905d3-cc.dtb
 
 EOT
