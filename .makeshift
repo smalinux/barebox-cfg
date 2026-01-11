@@ -35,7 +35,7 @@ __success__ = echo all good; pwd
 \architecture = arm
 __success__ = echo all good; pwd
 
-[platform rk3562]
+[platform kickpi]
 # m rockchip_v8_defconfig
 # ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
 #	cp /src/rkbin/bin/rk35/rk3562_ddr_1332MHz_v1.07.bin arch/arm/boards/rockchip-rk3562-evb2/sdram-init.bin
@@ -50,7 +50,8 @@ __success__ = <<EOT
 
 	# Delete old symlink && make new symlink
 	rm -f /tftpboot/none-linux-rk3562-kickpi-k3
-	ln -s /src/barebox/build/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+	ln -s /src/build/barebox/kickpi/images/barebox-rk3562-kickpi-k3.img /tftpboot/none-linux-rk3562-kickpi-k3
+
 EOT
 
 [platform amlogic]
